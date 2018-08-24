@@ -21,7 +21,11 @@ Note that Chrome must be installed.
 Get transactions:
 
 ```ruby
-account = Barclayscraper::Account.new(username: '', password: '', product_id: '')
+account = Barclayscraper::Account.new(
+  username: '',
+  password: '',
+  product_id: '' # Produkt ID, can be found in the table shown after log in
+)
 puts account.transactions
 ```
 

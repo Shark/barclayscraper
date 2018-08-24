@@ -16,18 +16,20 @@ module Barclayscraper
     end
 
     def transactions
-      log_in      
+      log_in
 
       transactions = session.find_all('table.datalist tbody tr').map do |row|
         columns = row.find_all('td')
+
         date = Date.strptime(columns[0].text, "%d.%m.%Y")
-        payee_name = columns[2].text
+
+        memo = columns[2].text
 
         amount_text = columns[5].text
         amount = amount_text.tr('+-', '').gsub(/\./, '').tr(',','.').to_d
         amount = amount * -1 if amount_text[-1] == '-'
 
-        { date: date, payee_name: payee_name, memo: nil, amount: amount }
+        { date: date, payee_name: nil, memo: memo, amount: amount }
       end
 
       log_out

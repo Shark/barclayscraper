@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Felix Seidel"]
   spec.email         = ["felix@seidel.me"]
 
-  spec.summary       = "Use Capybara and headless Chrome to scrape transactions from Barclaycard's website"
+  spec.summary       = "Use Capybara and headless Chrome to scrape account data from Barclaycard's website"
   spec.homepage      = "https://github.com/Shark/barclayscraper"
   spec.license       = "MIT"
 
