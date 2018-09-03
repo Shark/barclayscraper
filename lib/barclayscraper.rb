@@ -34,6 +34,8 @@ module Barclayscraper
 
       log_out
 
+      end_session
+
       transactions
     end
 
@@ -60,6 +62,10 @@ module Barclayscraper
 
     def session
       @session ||= Capybara::Session.new(:selenium_chrome_headless)
+    end
+
+    def end_session
+      session.driver.quit
     end
 
     attr_reader :username, :password, :product_id
